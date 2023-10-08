@@ -10,7 +10,7 @@
 		6DC6103D2AD2977C002EF573 /* CalendarView_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC6103C2AD2977C002EF573 /* CalendarView_DemoApp.swift */; };
 		6DC6103F2AD2977C002EF573 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC6103E2AD2977C002EF573 /* ContentView.swift */; };
 		6DC610412AD2977E002EF573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DC610402AD2977E002EF573 /* Assets.xcassets */; };
-		6DC610442AD2977E002EF573 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DC610432AD2977E002EF573 /* Preview Assets.xcassets */; };
+		6DC6104C2AD29DE9002EF573 /* MijickCalendarView in Frameworks */ = {isa = PBXBuildFile; productRef = 6DC6104B2AD29DE9002EF573 /* MijickCalendarView */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,7 +18,7 @@
 		6DC6103C2AD2977C002EF573 /* CalendarView_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView_DemoApp.swift; sourceTree = "<group>"; };
 		6DC6103E2AD2977C002EF573 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6DC610402AD2977E002EF573 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6DC610432AD2977E002EF573 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6DC6104E2AD29E31002EF573 /* CalendarView */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CalendarView; path = ../CalendarView; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +26,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DC6104C2AD29DE9002EF573 /* MijickCalendarView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,6 +37,7 @@
 			isa = PBXGroup;
 			children = (
 				6DC6103B2AD2977C002EF573 /* CalendarView Demo */,
+				6DC6104E2AD29E31002EF573 /* CalendarView */,
 				6DC6103A2AD2977C002EF573 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,17 +56,8 @@
 				6DC6103C2AD2977C002EF573 /* CalendarView_DemoApp.swift */,
 				6DC6103E2AD2977C002EF573 /* ContentView.swift */,
 				6DC610402AD2977E002EF573 /* Assets.xcassets */,
-				6DC610422AD2977E002EF573 /* Preview Content */,
 			);
 			path = "CalendarView Demo";
-			sourceTree = "<group>";
-		};
-		6DC610422AD2977E002EF573 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				6DC610432AD2977E002EF573 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +76,9 @@
 			dependencies = (
 			);
 			name = "CalendarView Demo";
+			packageProductDependencies = (
+				6DC6104B2AD29DE9002EF573 /* MijickCalendarView */,
+			);
 			productName = "CalendarView Demo";
 			productReference = 6DC610392AD2977C002EF573 /* CalendarView Demo.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +107,9 @@
 				Base,
 			);
 			mainGroup = 6DC610302AD2977C002EF573;
+			packageReferences = (
+				6DC6104A2AD29DE9002EF573 /* XCRemoteSwiftPackageReference "CalendarView" */,
+			);
 			productRefGroup = 6DC6103A2AD2977C002EF573 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,7 +124,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DC610442AD2977E002EF573 /* Preview Assets.xcassets in Resources */,
 				6DC610412AD2977E002EF573 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,10 +266,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CalendarView Demo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 78L5993673;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -297,10 +295,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CalendarView Demo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 78L5993673;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -344,6 +342,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6DC6104A2AD29DE9002EF573 /* XCRemoteSwiftPackageReference "CalendarView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Mijick/CalendarView";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6DC6104B2AD29DE9002EF573 /* MijickCalendarView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6DC6104A2AD29DE9002EF573 /* XCRemoteSwiftPackageReference "CalendarView" */;
+			productName = MijickCalendarView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6DC610312AD2977C002EF573 /* Project object */;
 }

@@ -11,8 +11,7 @@
 
 import SwiftUI
 
-@main
-struct CalendarView_DemoApp: App {
+@main struct CalendarView_DemoApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
