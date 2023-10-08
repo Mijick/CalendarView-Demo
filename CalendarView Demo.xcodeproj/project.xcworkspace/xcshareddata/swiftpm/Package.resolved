@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "calendarview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Mijick/CalendarView",
+      "state" : {
+        "branch" : "main",
+        "revision" : "37974bb03552a7cd55084825e5e260ce321c9cad"
+      }
+    },
+    {
+      "identity" : "gridview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Mijick/GridView",
+      "state" : {
+        "branch" : "main",
+        "revision" : "541e8235885aa42d76a5e4f6a69dea7109ba86f5"
+      }
+    },
+    {
+      "identity" : "navigattie",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Mijick/Navigattie",
+      "state" : {
+        "branch" : "main",
+        "revision" : "5c569f7709c14717a6b9c1a1cf3e1e1e8f7680b9"
+      }
+    }
+  ],
+  "version" : 2
+}
