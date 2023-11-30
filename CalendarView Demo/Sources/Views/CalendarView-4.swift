@@ -10,3 +10,11 @@
 
 
 import SwiftUI
+import MijickNavigattie
+import MijickCalendarView
+
+struct CalendarView4: NavigatableView {
+    var body: some View {
+        EmptyView()
+    }
+}

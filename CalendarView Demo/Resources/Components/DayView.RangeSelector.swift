@@ -21,7 +21,7 @@ extension DV { struct RangeSelector: DayView {
 extension DV.RangeSelector {
     func createDayLabel() -> AnyView {
         Text(getStringFromDay(format: "d"))
-            .font(.semiBold(16))
+            .font(.semiBold(15))
             .foregroundStyle(isSelected() ? .backgroundPrimary : .onBackgroundPrimary)
             .strikethrough(isPast())
             .opacity(isPast() ? 0.7 : 1)
