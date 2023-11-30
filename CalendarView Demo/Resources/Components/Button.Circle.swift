@@ -21,7 +21,7 @@ extension Btn { struct Circle: View {
                 .resizable()
                 .padding(6)
                 .foregroundStyle(.onBackgroundPrimary)
-                .frame(44)
+                .frame(40)
                 .background(.backgroundSecondary, in: SwiftUI.Circle())
         }
     }

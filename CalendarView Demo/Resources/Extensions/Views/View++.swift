@@ -15,3 +15,8 @@ import SwiftUI
 extension View {
     func frame(_ size: CGFloat) -> some View { frame(width: size, height: size, alignment: .center) }
 }
+
+// MARK: - Active Flag
+extension View {
+    @ViewBuilder func active(if condition: Bool) -> some View { if condition { self } }
+}

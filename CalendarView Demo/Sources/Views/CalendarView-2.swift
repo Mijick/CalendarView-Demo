@@ -50,7 +50,10 @@ private extension CalendarView2 {
 }
 private extension CalendarView2 {
     func configureCalendar(_ config: CalendarConfig) -> CalendarConfig { config
-        .dayView(CustomDayView.init)
+        .daysVerticalSpacing(-1)
+        .daysHorizontalSpacing(-1)
+        .monthsTopPadding(36)
+        .dayView(DV.Price.init)
         .monthLabel(CustomMonthLabel.init)
         .onMonthChange(viewModel.endMonth.send)
     }
@@ -92,24 +95,10 @@ private extension TopMonthView {
     }
 }
 
-// MARK: - Calendar Day View
-fileprivate struct CustomDayView: DayView {
-    var date: Date
-    
-    var isCurrentMonth: Bool
-    
-    var selectedDate: Binding<Date?>?
-    
-    var selectedRange: Binding<MijickCalendarView.MDateRange?>?
-    
-
-
-}
-
 // MARK: - Month Label
 fileprivate struct CustomMonthLabel: MonthLabel {
-    var month: Date
-    
+    let month: Date
+
     func createContent() -> AnyView {
         Text(getString(format: "MMMM yyyy"))
             .font(.semiBold(18))

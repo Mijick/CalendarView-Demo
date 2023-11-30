@@ -27,7 +27,6 @@ struct HomeView: NavigatableView {
             createFooter()
             Spacer.height(4)
         }
-        .preferredColorScheme(.dark)
     }
 }
 
@@ -47,7 +46,7 @@ private extension HomeView {
 // MARK: - Header
 fileprivate struct HeaderView: View {
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: 16) {
             createTitle()
             createDescription()
         }
@@ -82,14 +81,14 @@ private extension ButtonsView {
     }
     func configureGridView(_ config: GridView.Config) -> GridView.Config { config
         .columns(2)
-        .horizontalSpacing(16)
-        .verticalSpacing(16)
+        .horizontalSpacing(12)
+        .verticalSpacing(12)
     }
 }
 private extension ButtonsView {
     func onButtonTap(_ index: Int) { switch index {
         case 1: fatalError()
-        case 2: CalendarView2().push(with: .cubeRotation)
+        case 2: CalendarView2().push(with: .scale)
         case 3: fatalError()
         case 4: fatalError()
         default: fatalError()
@@ -153,7 +152,7 @@ private extension FooterView {
 
 
 // MARK: - Modifiers
-fileprivate let margins: CGFloat = 24
+fileprivate let margins: CGFloat = 28
 
 
 // MARK: - Preview

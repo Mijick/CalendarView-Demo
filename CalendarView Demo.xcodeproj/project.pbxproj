@@ -24,6 +24,7 @@
 		6D0388052B18E80000DC89D1 /* CalendarView-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0388042B18E80000DC89D1 /* CalendarView-1.swift */; };
 		6D0388072B18E80600DC89D1 /* CalendarView-3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0388062B18E80600DC89D1 /* CalendarView-3.swift */; };
 		6D0388092B18E80C00DC89D1 /* CalendarView-4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0388082B18E80C00DC89D1 /* CalendarView-4.swift */; };
+		6DC0BA222B19209C0008B3C0 /* DayView.Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC0BA212B19209C0008B3C0 /* DayView.Price.swift */; };
 		6DC6103D2AD2977C002EF573 /* CalendarView_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC6103C2AD2977C002EF573 /* CalendarView_DemoApp.swift */; };
 		6DC6103F2AD2977C002EF573 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC6103E2AD2977C002EF573 /* HomeView.swift */; };
 		6DC610412AD2977E002EF573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DC610402AD2977E002EF573 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		6D0388042B18E80000DC89D1 /* CalendarView-1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarView-1.swift"; sourceTree = "<group>"; };
 		6D0388062B18E80600DC89D1 /* CalendarView-3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarView-3.swift"; sourceTree = "<group>"; };
 		6D0388082B18E80C00DC89D1 /* CalendarView-4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarView-4.swift"; sourceTree = "<group>"; };
+		6DC0BA212B19209C0008B3C0 /* DayView.Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.Price.swift; sourceTree = "<group>"; };
 		6DC610392AD2977C002EF573 /* CalendarView Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CalendarView Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DC6103C2AD2977C002EF573 /* CalendarView_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView_DemoApp.swift; sourceTree = "<group>"; };
 		6DC6103E2AD2977C002EF573 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				6D0387EB2B18CA9500DC89D1 /* Button.Rectangle.swift */,
 				6D0387F32B18CF4800DC89D1 /* Button.Circle.swift */,
 				6D0387F12B18CF4100DC89D1 /* Button.Icon.swift */,
+				6DC0BA212B19209C0008B3C0 /* DayView.Price.swift */,
 				6D0388002B18E7ED00DC89D1 /* NavigationBar.swift */,
 				6D0388022B18E7F100DC89D1 /* TabBar.swift */,
 			);
@@ -296,6 +299,7 @@
 				6D0387F02B18CC1500DC89D1 /* Namespaces.swift in Sources */,
 				6D0387E72B18C4F000DC89D1 /* Font++.swift in Sources */,
 				6D0387E12B18C4B300DC89D1 /* Spacer++.swift in Sources */,
+				6DC0BA222B19209C0008B3C0 /* DayView.Price.swift in Sources */,
 				6DC6103D2AD2977C002EF573 /* CalendarView_DemoApp.swift in Sources */,
 				6D0387E52B18C4E900DC89D1 /* Color++.swift in Sources */,
 				6D0387F62B18CF4D00DC89D1 /* Button.Default.swift in Sources */,

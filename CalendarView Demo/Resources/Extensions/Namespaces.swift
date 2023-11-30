@@ -11,3 +11,6 @@
 
 // MARK: - Buttons
 enum Btn {}
+
+// MARK: - Calendar Day View
+enum DV {}
