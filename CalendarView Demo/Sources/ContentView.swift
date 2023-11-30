@@ -17,7 +17,3 @@ struct ContentView: View {
         MCalendarView(selectedDate: nil, selectedRange: nil)
     }
 }
-
-#Preview {
-    ContentView()
-}

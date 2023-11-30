@@ -10,6 +10,7 @@
 
 
 import SwiftUI
+import MijickNavigattie
 
 @main struct CalendarView_DemoApp: App {
     var body: some Scene {
