@@ -14,7 +14,7 @@ import MijickNavigattie
 import MijickCalendarView
 
 struct CalendarView1: NavigatableView {
-    @State private var selectedRange: MDateRange = .init()
+    @State private var selectedRange: MDateRange? = .init()
 
 
     var body: some View {
@@ -38,33 +38,52 @@ private extension CalendarView1 {
         SelectedRangeView(selectedRange: $selectedRange)
     }
     func createCalendarView() -> some View {
-        EmptyView()
+        MCalendarView(selectedDate: nil, selectedRange: $selectedRange, configBuilder: configureCalendar)
     }
     func createBottomView() -> some View {
-        BottomView()
+        Btn.Default(title: "Continue", action: onContinueButtonTap)
+            .padding(.top, 12)
+            .padding(.horizontal, margins)
+    }
+}
+private extension CalendarView1 {
+    func configureCalendar(_ config: CalendarConfig) -> CalendarConfig { config
+        .monthsSpacing(40)
+        .monthsTopPadding(44)
+        .dayView(DV.RangeSelector.init)
+        .monthLabel { ML.Leading(month: $0, horizontalPadding: margins) }
+        .monthsViewBackground(.backgroundTertiary.opacity(0.68))
+    }
+}
+private extension CalendarView1 {
+    func onContinueButtonTap() {
+
     }
 }
 
 // MARK: - Selected Range View
 fileprivate struct SelectedRangeView: View {
-    @Binding var selectedRange: MDateRange
+    @Binding var selectedRange: MDateRange?
 
 
     var body: some View {
         HStack(spacing: 12) {
-            createFirstDateText()
+            createDateText(startDateText)
             createArrowIcon()
-            createSecondDateText()
+            createDateText(endDateText)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, margins)
+        .animation(.bouncy, value: selectedRange?.getRange())
     }
 }
 private extension SelectedRangeView {
-    func createFirstDateText() -> some View {
-        Text(startDateText)
-            .font(.semiBold(26))
+    func createDateText(_ text: String) -> some View {
+        Text(text)
+            .font(.semiBold(24))
             .foregroundStyle(.onBackgroundPrimary)
+            .lineLimit(1)
+            .contentTransition(.numericText(countsDown: true))
     }
     func createArrowIcon() -> some View {
         Image("arrow-right")
@@ -72,19 +91,14 @@ private extension SelectedRangeView {
             .frame(28)
             .foregroundStyle(.onBackgroundSecondary)
     }
-    func createSecondDateText() -> some View {
-        Text(endDateText)
-            .font(.semiBold(26))
-            .foregroundStyle(.onBackgroundPrimary)
-    }
 }
 private extension SelectedRangeView {
     var startDateText: String {
-        guard let date = selectedRange.getRange()?.lowerBound else { return "N/A" }
+        guard let date = selectedRange?.getRange()?.lowerBound else { return "N/A" }
         return dateFormatter.string(from: date)
     }
     var endDateText: String {
-        guard let date = selectedRange.getRange()?.upperBound else { return "N/A" }
+        guard let date = selectedRange?.getRange()?.upperBound else { return "N/A" }
         return dateFormatter.string(from: date)
     }
 }
@@ -93,30 +107,6 @@ private extension SelectedRangeView {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, MMM d"
         return dateFormatter
-    }
-}
-
-// MARK: - Bottom View
-fileprivate struct BottomView: View {
-    var body: some View {
-        VStack(spacing: 20) {
-            createDivider()
-            createContinueButton()
-        }
-    }
-}
-private extension BottomView {
-    func createDivider() -> some View {
-        Divider()
-    }
-    func createContinueButton() -> some View {
-        Btn.Default(title: "Continue", action: onContinueButtonTap)
-            .padding(.horizontal, margins)
-    }
-}
-private extension BottomView {
-    func onContinueButtonTap() {
-
     }
 }
 

@@ -9,8 +9,11 @@
 //  Copyright ©2023 Mijick. Licensed under MIT License.
 
 
-// MARK: - Buttons
+/// Buttons
 enum Btn {}
 
-// MARK: - Calendar Day View
+/// Calendar Day View
 enum DV {}
+
+/// Calendar Month Label
+enum ML {}

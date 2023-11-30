@@ -51,7 +51,7 @@ private extension CalendarView2 {
         .daysHorizontalSpacing(-1)
         .monthsTopPadding(36)
         .dayView(DV.Price.init)
-        .monthLabel(CustomMonthLabel.init)
+        .monthLabel { ML.Leading(month: $0, horizontalPadding: 0) }
         .onMonthChange(viewModel.endMonth.send)
     }
 }
@@ -91,20 +91,6 @@ private extension TopMonthView {
         return dateFormatter.string(from: _currentMonth)
     }
 }
-
-// MARK: - Month Label
-fileprivate struct CustomMonthLabel: MonthLabel {
-    let month: Date
-
-    func createContent() -> AnyView {
-        Text(getString(format: "MMMM yyyy"))
-            .font(.semiBold(18))
-            .foregroundStyle(.onBackgroundPrimary)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .erased()
-    }
-}
-
 
 // MARK: - ViewModel
 // NOTE: EndMonth value was marked as CurrentValueSubject in order to optimise the view - otherwise the CalendarView would refresh every time a new month was loaded.
