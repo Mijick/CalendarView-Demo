@@ -111,7 +111,7 @@ private extension FooterView {
         Image("mijick")
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(height: 68)
+            .frame(height: 64)
             .foregroundStyle(.onBackgroundPrimary)
             .frame(height: 0)
     }
