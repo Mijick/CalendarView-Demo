@@ -14,6 +14,9 @@ import MijickNavigattie
 import MijickGridView
 
 struct HomeView: NavigatableView {
+    func configure(view: NavigationConfig) -> NavigationConfig { view
+        .backgroundColour(.backgroundPrimary)
+    }
     var body: some View {
         VStack(spacing: 0) {
             Spacer.height(72)
@@ -75,13 +78,22 @@ fileprivate struct ButtonsView: View {
 }
 private extension ButtonsView {
     func createButton(_ index: Int) -> some View {
-        Btn.Rectangle(imageName: "calendar-\(index)", action: {})
+        Btn.Rectangle(imageName: "calendar-\(index)") { onButtonTap(index) }
     }
     func configureGridView(_ config: GridView.Config) -> GridView.Config { config
         .columns(2)
         .horizontalSpacing(16)
         .verticalSpacing(16)
     }
+}
+private extension ButtonsView {
+    func onButtonTap(_ index: Int) { switch index {
+        case 1: fatalError()
+        case 2: CalendarView2().push(with: .cubeRotation)
+        case 3: fatalError()
+        case 4: fatalError()
+        default: fatalError()
+    }}
 }
 
 // MARK: - Footer
@@ -111,7 +123,7 @@ private extension FooterView {
         Image("mijick")
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(height: 64)
+            .frame(height: 62)
             .foregroundStyle(.onBackgroundPrimary)
             .frame(height: 0)
     }
