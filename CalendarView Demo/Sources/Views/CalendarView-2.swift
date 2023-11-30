@@ -14,14 +14,6 @@ import Combine
 import MijickNavigattie
 import MijickCalendarView
 
-// MARK: - ViewModel
-fileprivate class ViewModel: ObservableObject {
-    @Published var selectedDate: Date? = nil
-    var endMonth: CurrentValueSubject<Date, Never> = .init(.now)
-}
-
-
-// MARK: - Implementation
 struct CalendarView2: NavigatableView {
     @StateObject private var viewModel: ViewModel = .init()
 
@@ -128,8 +120,16 @@ fileprivate struct CustomMonthLabel: MonthLabel {
 }
 
 
+// MARK: - ViewModel
+// NOTE: EndMonth value was marked as CurrentValueSubject in order to optimise the view - otherwise the CalendarView would refresh every time a new month was loaded.
+fileprivate class ViewModel: ObservableObject {
+    @Published var selectedDate: Date? = nil
+    var endMonth: CurrentValueSubject<Date, Never> = .init(.now)
+}
+
+
 // MARK: - Modifiers
-fileprivate let margins: CGFloat = 24
+fileprivate let margins: CGFloat = 28
 
 
 // MARK: - Preview
