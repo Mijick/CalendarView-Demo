@@ -19,7 +19,7 @@ struct HomeView: NavigatableView {
     }
     var body: some View {
         VStack(spacing: 0) {
-            Spacer.height(72)
+            Spacer.height(64)
             createHeader()
             Spacer.height(44)
             createButtons()

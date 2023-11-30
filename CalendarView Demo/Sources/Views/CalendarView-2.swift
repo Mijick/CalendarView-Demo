@@ -10,12 +10,20 @@
 
 
 import SwiftUI
+import Combine
 import MijickNavigattie
 import MijickCalendarView
 
+// MARK: - ViewModel
+fileprivate class ViewModel: ObservableObject {
+    @Published var selectedDate: Date? = nil
+    var endMonth: CurrentValueSubject<Date, Never> = .init(.now)
+}
+
+
+// MARK: - Implementation
 struct CalendarView2: NavigatableView {
-    @State private var selectedDate: Date? = .now
-    @State private var endMonth: Date = .now
+    @StateObject private var viewModel: ViewModel = .init()
 
 
     func configure(view: NavigationConfig) -> NavigationConfig { view
@@ -30,7 +38,6 @@ struct CalendarView2: NavigatableView {
             createCalendarView()
             createTabBar()
         }
-        .animation(.bouncy, value: endMonth)
     }
 }
 private extension CalendarView2 {
@@ -39,10 +46,10 @@ private extension CalendarView2 {
             .padding(.horizontal, margins)
     }
     func createTopMonthView() -> some View {
-        TopMonthView(currentMonth: endMonth)
+        TopMonthView(currentMonth: viewModel.endMonth)
     }
     func createCalendarView() -> some View {
-        MCalendarView(selectedDate: $selectedDate, selectedRange: nil, configBuilder: configureCalendar)
+        MCalendarView(selectedDate: $viewModel.selectedDate, selectedRange: nil, configBuilder: configureCalendar)
             .padding(.horizontal, margins)
     }
     func createTabBar() -> some View {
@@ -53,19 +60,22 @@ private extension CalendarView2 {
     func configureCalendar(_ config: CalendarConfig) -> CalendarConfig { config
         .dayView(CustomDayView.init)
         .monthLabel(CustomMonthLabel.init)
-        .onMonthChange { endMonth = $0 }
+        .onMonthChange(viewModel.endMonth.send)
     }
 }
 
 // MARK: - Top Month View
 fileprivate struct TopMonthView: View {
-    let currentMonth: Date
+    let currentMonth: CurrentValueSubject<Date, Never>
+    @State private var _currentMonth: Date = .now
 
     var body: some View {
         HStack(spacing: 2) {
             createText()
             createIcon()
         }
+        .animation(.bouncy, value: _currentMonth)
+        .onReceive(currentMonth) { _currentMonth = $0 }
     }
 }
 private extension TopMonthView {
@@ -86,7 +96,7 @@ private extension TopMonthView {
     var text: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM yyyy"
-        return dateFormatter.string(from: currentMonth)
+        return dateFormatter.string(from: _currentMonth)
     }
 }
 
