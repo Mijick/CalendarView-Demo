@@ -1,5 +1,5 @@
 //
-//  CalendarView_DemoApp.swift of CalendarView Demo
+//  HomeView.swift of CalendarView Demo
 //
 //  Created by Tomasz Kurylik
 //    - Twitter: https://twitter.com/tkurylik
@@ -12,8 +12,8 @@
 import SwiftUI
 import MijickNavigattie
 
-@main struct CalendarView_DemoApp: App {
-    var body: some Scene { WindowGroup {
-        HomeView().implementNavigationView()
-    }}
+struct HomeView: NavigatableView {
+    var body: some View {
+        EmptyView()
+    }
 }

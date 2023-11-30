@@ -1,5 +1,5 @@
 //
-//  CalendarView_DemoApp.swift of CalendarView Demo
+//  View++.swift of CalendarView Demo
 //
 //  Created by Tomasz Kurylik
 //    - Twitter: https://twitter.com/tkurylik
@@ -10,10 +10,8 @@
 
 
 import SwiftUI
-import MijickNavigattie
 
-@main struct CalendarView_DemoApp: App {
-    var body: some Scene { WindowGroup {
-        HomeView().implementNavigationView()
-    }}
+// MARK: - Frame
+extension View {
+    func frame(_ size: CGFloat) -> some View { frame(width: size, height: size, alignment: .center) }
 }

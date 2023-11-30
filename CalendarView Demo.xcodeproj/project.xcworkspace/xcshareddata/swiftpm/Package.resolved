@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "navigattie",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Mijick/Navigattie",
+      "state" : {
+        "revision" : "214a9fb96ee859216083b8f3bc59a0ba95f67449",
+        "version" : "0.4.0"
+      }
+    }
+  ],
+  "version" : 2
+}
