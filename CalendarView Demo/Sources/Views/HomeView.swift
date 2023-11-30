@@ -17,3 +17,35 @@ struct HomeView: NavigatableView {
         EmptyView()
     }
 }
+
+private extension HomeView {
+    func createHeader() -> some View {
+        EmptyView()
+    }
+    func createButtons() -> some View {
+        EmptyView()
+    }
+    func createFooter() -> some View {
+        EmptyView()
+    }
+}
+
+private extension HomeView {
+
+}
+
+private extension HomeView {
+
+}
+
+private extension HomeView {
+//    GridView(1...4, id: \.self) {
+//        Btn.Rectangle(imageName: "calendar-\($0)", action: {})
+//    } configBuilder: {
+//        $0
+//            .columns(2)
+//            .horizontalSpacing(16)
+//            .verticalSpacing(16)
+//    }
+//    .padding(.horizontal, 24)
+}

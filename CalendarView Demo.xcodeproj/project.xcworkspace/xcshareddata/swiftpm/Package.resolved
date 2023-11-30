@@ -1,12 +1,21 @@
 {
   "pins" : [
     {
+      "identity" : "gridview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Mijick/GridView",
+      "state" : {
+        "branch" : "main",
+        "revision" : "541e8235885aa42d76a5e4f6a69dea7109ba86f5"
+      }
+    },
+    {
       "identity" : "navigattie",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Mijick/Navigattie",
       "state" : {
-        "revision" : "214a9fb96ee859216083b8f3bc59a0ba95f67449",
-        "version" : "0.4.0"
+        "branch" : "main",
+        "revision" : "5c569f7709c14717a6b9c1a1cf3e1e1e8f7680b9"
       }
     }
   ],
