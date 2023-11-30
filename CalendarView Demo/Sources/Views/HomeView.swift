@@ -14,9 +14,6 @@ import MijickNavigattie
 import MijickGridView
 
 struct HomeView: NavigatableView {
-    func configure(view: NavigationConfig) -> NavigationConfig { view
-        .backgroundColour(.backgroundPrimary)
-    }
     var body: some View {
         VStack(spacing: 0) {
             Spacer.height(64)
@@ -87,7 +84,7 @@ private extension ButtonsView {
 }
 private extension ButtonsView {
     func onButtonTap(_ index: Int) { switch index {
-        case 1: fatalError()
+        case 1: CalendarView1().push(with: .scale)
         case 2: CalendarView2().push(with: .scale)
         case 3: fatalError()
         case 4: fatalError()

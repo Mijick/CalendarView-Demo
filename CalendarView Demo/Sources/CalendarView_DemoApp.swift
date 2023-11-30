@@ -14,6 +14,13 @@ import MijickNavigattie
 
 @main struct CalendarView_DemoApp: App {
     var body: some Scene { WindowGroup {
-        HomeView().implementNavigationView()
+        HomeView().implementNavigationView(config: config)
     }}
+}
+private extension CalendarView_DemoApp {
+    var config: NavigationGlobalConfig {
+        let config = NavigationGlobalConfig()
+        config.backgroundColour = .backgroundPrimary
+        return config
+    }
 }

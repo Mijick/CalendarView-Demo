@@ -18,9 +18,6 @@ struct CalendarView2: NavigatableView {
     @StateObject private var viewModel: ViewModel = .init()
 
 
-    func configure(view: NavigationConfig) -> NavigationConfig { view
-        .backgroundColour(.backgroundPrimary)
-    }
     var body: some View {
         VStack(spacing: 0) {
             createNavigationBar()
