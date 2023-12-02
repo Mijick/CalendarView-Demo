@@ -12,9 +12,9 @@
 import SwiftUI
 
 extension Color {
-    static let green: Color = .init(hex: 0x426A5A)
-    static let orange: Color = .init(hex: 0xF18F01)
-    static let red: Color = .init(hex: 0xAE3648)
+    static let greenAccent: Color = .init(hex: 0x426A5A)
+    static let orangeAccent: Color = .init(hex: 0xF18F01)
+    static let redAccent: Color = .init(hex: 0xAE3648)
 }
 
 // MARK: - Initialisation with HEX value
