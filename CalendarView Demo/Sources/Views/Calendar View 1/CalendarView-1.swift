@@ -59,7 +59,7 @@ private extension CalendarView1 {
 private extension CalendarView1 {
     func configureCalendar(_ config: CalendarConfig) -> CalendarConfig {
         config
-            .daysHorizontalSpacing(12)
+            .daysHorizontalSpacing(9)
             .daysVerticalSpacing(19)
             .monthsBottomPadding(16)
             .monthsTopPadding(42)

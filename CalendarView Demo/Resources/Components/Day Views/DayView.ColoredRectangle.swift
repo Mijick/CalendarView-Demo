@@ -21,54 +21,61 @@ extension DV { struct ColoredRectangle: DayView {
 
 extension DV.ColoredRectangle {
     func createDayLabel() -> AnyView {
-        isPast() ? createPastView() : createMarkedView(color ?? .backgroundPrimary)
+        ZStack {
+            createBackgroundView()
+            createDayLabelText()
+        }
+        .erased()
     }
     func createSelectionView() -> AnyView {
         RoundedRectangle(cornerRadius: 3)
             .fill(.background)
-            .stroke(color ?? .redAccent, lineWidth: 3)
-            .frame(width: 49, height: 49)
+            .strokeBorder(color ?? .redAccent, lineWidth: 3)
             .transition(.asymmetric(insertion: .scale(scale: 0.5).combined(with: .opacity), removal: .opacity))
-            .padding(.horizontal, 1)
             .active(if: isSelected() && !isPast())
             .erased()
     }
-    func onSelection() {
-        if !isPast() { selectedDate?.wrappedValue = date }
-    }
 }
-
 private extension DV.ColoredRectangle {
-    func createMarkedView(_ color: Color) -> AnyView  {
-        createNumberLabel(self.color == nil ? .onBackgroundPrimary : .white)
-            .background { createBackgroundView(color) }
-            .erased()
-    }
-    func createPastView() -> AnyView  {
-        createNumberLabel(.onBackgroundSecondary)
-            .overlay(content: createCrossLine)
-            .background { createBackgroundView(.backgroundSecondary) }
-            .erased()
-    }
-}
-
-private extension DV.ColoredRectangle {
-    func createBackgroundView(_ color: Color) -> some View {
+    func createBackgroundView() -> some View {
         RoundedRectangle(cornerRadius: 4)
-            .frame(width: 40, height: 40)
-            .foregroundColor(color)
-    }
-    func createCrossLine() -> some View {
-        Rectangle()
-            .fill(.onBackgroundSecondary.opacity(0.7))
-            .frame(height: 2)
+            .fill(Color.clear)
+            .padding(4)
+            .background(getBackgroundColor())
+            .padding(4)
+            
     }
 }
-
 private extension DV.ColoredRectangle {
-    func createNumberLabel(_ color: Color) -> some View {
+    func createDayLabelText() -> some View {
         Text(getStringFromDay(format: "d"))
             .font(.regular(17))
-            .foregroundColor(color)
+            .foregroundColor(getTextColor())
+            .strikethrough(isPast())
+    }
+}
+private extension DV.ColoredRectangle {
+    func getTextColor() -> Color {
+        guard !isPast() else { return .onBackgroundSecondary }
+        
+        switch isSelected() {
+            case true: return color == nil ? .onBackgroundPrimary : .white
+            case false: return color == nil ? .onBackgroundPrimary : .white
+        }
+    }
+    func getBackgroundColor() -> Color {
+        guard !isPast() else { return .backgroundSecondary }
+
+        switch isSelected() {
+            case true: return color ?? .backgroundPrimary
+            case false: return color ?? .backgroundPrimary
+        }
+    }
+}
+
+// MARK: - On Selection Logic
+extension DV.ColoredRectangle {
+    func onSelection() {
+        if !isPast() { selectedDate?.wrappedValue = date }
     }
 }
