@@ -31,7 +31,6 @@ private extension CalendarView1 {
             createTitleView()
             Spacer.height(32)
             createCalendarView()
-            Spacer()
         }
     }
     func createOverlayButton() -> some View {
@@ -60,8 +59,7 @@ private extension CalendarView1 {
 private extension CalendarView1 {
     func configureCalendar(_ config: CalendarConfig) -> CalendarConfig {
         config
-            .startMonth(.init(timeIntervalSince1970: 1698871714))
-            .daysHorizontalSpacing(10)
+            .daysHorizontalSpacing(12)
             .daysVerticalSpacing(19)
             .monthsBottomPadding(16)
             .monthsTopPadding(42)
@@ -70,7 +68,7 @@ private extension CalendarView1 {
     }
 }
 private extension CalendarView1 {
-    func buildDayView(_ date: Date, _ isCurrentMonth: Bool, selectedDate: Binding<Date?>?, range: Binding<MDateRange?>?) -> DV.Colored {
+    func buildDayView(_ date: Date, _ isCurrentMonth: Bool, selectedDate: Binding<Date?>?, range: Binding<MDateRange?>?) -> DV.ColoredRectangle {
         return .init(date: date, color: getDateColor(date), isCurrentMonth: isCurrentMonth, selectedDate: selectedDate, selectedRange: nil)
     }
 }

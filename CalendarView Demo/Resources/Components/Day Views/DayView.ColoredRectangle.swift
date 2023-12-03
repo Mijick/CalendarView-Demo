@@ -1,5 +1,5 @@
 //
-//  DayView.Colored.swift of CalendarView Demo
+//  DayView.ColoredRectangle.swift of CalendarView Demo
 //
 //  Created by Alina Petrovska on 02.12.2023.
 //    - Mail: alina.petrovskaya@mijick.com
@@ -11,7 +11,7 @@
 import SwiftUI
 import MijickCalendarView
 
-extension DV { struct Colored: DayView {
+extension DV { struct ColoredRectangle: DayView {
     var date: Date
     var color: Color?
     var isCurrentMonth: Bool
@@ -19,7 +19,7 @@ extension DV { struct Colored: DayView {
     var selectedRange: Binding<MijickCalendarView.MDateRange?>?
 }}
 
-extension DV.Colored {
+extension DV.ColoredRectangle {
     func createDayLabel() -> AnyView {
         isPast() ? createPastView() : createMarkedView(color ?? .backgroundPrimary)
     }
@@ -33,9 +33,12 @@ extension DV.Colored {
             .active(if: isSelected() && !isPast())
             .erased()
     }
+    func onSelection() {
+        if !isPast() { selectedDate?.wrappedValue = date }
+    }
 }
 
-private extension DV.Colored {
+private extension DV.ColoredRectangle {
     func createMarkedView(_ color: Color) -> AnyView  {
         createNumberLabel(self.color == nil ? .onBackgroundPrimary : .white)
             .background { createBackgroundView(color) }
@@ -49,7 +52,7 @@ private extension DV.Colored {
     }
 }
 
-private extension DV.Colored {
+private extension DV.ColoredRectangle {
     func createBackgroundView(_ color: Color) -> some View {
         RoundedRectangle(cornerRadius: 4)
             .frame(width: 40, height: 40)
@@ -62,7 +65,7 @@ private extension DV.Colored {
     }
 }
 
-private extension DV.Colored {
+private extension DV.ColoredRectangle {
     func createNumberLabel(_ color: Color) -> some View {
         Text(getStringFromDay(format: "d"))
             .font(.regular(17))
