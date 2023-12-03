@@ -80,7 +80,7 @@ private extension CalendarView4.EventsView {
     }
     var day: String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE d yyyy"
+        dateFormatter.dateFormat = "EEEE, d MMMM"
         return dateFormatter.string(from: selectedDate ?? Date())
     }
 }
